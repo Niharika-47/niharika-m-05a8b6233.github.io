@@ -6,13 +6,13 @@
     <title>Niharika Mruthyunjaya E | Dashboard</title>
     <style>
         :root {
-            --bg-main: #090d16;
-            --bg-card: #111726;
+            --bg-main: #0b0f17;
+            --bg-card: #111827;
             --text-heading: #ffffff;
             --text-body: #9ca3af;
-            --border-subtle: rgba(31, 41, 55, 0.7);
+            --border-subtle: #1f2937;
             --accent-glow: #38bdf8;
-            --accent-purple: #818cf8;
+            --tag-bg: rgba(56, 189, 248, 0.1);
         }
 
         body {
@@ -21,245 +21,242 @@
             color: var(--text-heading);
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            overflow: hidden;
         }
 
-        /* DASHBOARD SPLIT-SCREEN STRUCTURE */
-        .dashboard-container {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            box-sizing: border-box;
+        /* HEADER AREA */
+        .profile-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 20px 20px;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        /* LEFT PANEL: PROFILE SUMMARY */
-        .left-panel {
-            width: 30%;
-            min-width: 280px;
-            background: linear-gradient(180deg, #111726 0%, #0c101b 100%);
-            border-right: 1px solid var(--border-subtle);
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
-        }
-
-        .profile-info h1 {
-            font-size: 1.8rem;
+        .profile-title {
+            font-size: 2rem;
             font-weight: 700;
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             letter-spacing: -0.5px;
-            background: linear-gradient(to right, var(--accent-glow), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
-        .profile-info p {
+        .profile-subtitle {
             color: var(--text-body);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin: 0 0 24px 0;
+            font-size: 1rem;
+            margin: 0 0 20px 0;
         }
 
-        .action-links {
+        /* QUICK STATS / LINK BUTTONS */
+        .header-links {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .action-links a {
+        .header-links a {
             color: var(--text-heading);
             text-decoration: none;
             font-size: 0.85rem;
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            padding: 12px 16px;
+            padding: 8px 16px;
             border-radius: 6px;
             font-weight: 500;
             transition: all 0.2s ease;
-            text-align: center;
         }
 
-        .action-links a:hover {
+        .header-links a:hover {
             border-color: var(--accent-glow);
             background: rgba(56, 189, 248, 0.05);
-            transform: translateX(3px);
         }
 
-        .footer-stamp {
-            font-size: 0.75rem;
-            color: rgba(156, 163, 175, 0.5);
-            margin: 0;
+        /* GRID SYSTEM SETUP */
+        .main-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        /* RIGHT PANEL: GRID CONSOLE */
-        .right-panel {
-            width: 70%;
-            padding: 40px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .grid-section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-body);
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .console-grid {
+        .resource-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, minmax(0, 1fr));
-            gap: 20px;
-            height: 100%;
-            max-height: 750px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+            margin-bottom: 50px;
         }
 
-        /* COMPACT CARD TILES */
-        .tile-card {
+        /* THE HITESH-STYLE CARD LOGIC */
+        .resource-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-sizing: border-box;
+            position: relative;
             transition: border-color 0.2s, transform 0.2s;
         }
 
-        .tile-card:hover {
-            border-color: var(--accent-purple);
-            transform: scale(1.01);
+        .resource-card:hover {
+            border-color: var(--accent-glow);
+            transform: translateY(-2px);
         }
 
-        .tile-meta {
-            font-size: 0.7rem;
-            font-weight: 700;
+        .card-top {
+            margin-bottom: 20px;
+        }
+
+        .card-meta {
+            font-size: 0.75rem;
+            font-weight: 600;
             color: var(--accent-glow);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 6px;
         }
 
-        .tile-title {
-            font-size: 1.15rem;
+        .card-name {
+            font-size: 1.2rem;
             font-weight: 600;
             margin: 0 0 10px 0;
+            line-height: 1.4;
         }
 
-        .tile-desc {
+        .card-desc {
             color: var(--text-body);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             line-height: 1.5;
             margin: 0;
         }
 
-        /* MINI DISCRETE TAGS */
-        .tile-tags {
+        /* BOTTOM LABELS IN TILES */
+        .card-bottom-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 12px;
+            border-top: 1px solid rgba(31, 41, 55, 0.5);
+            padding-top: 14px;
         }
 
-        .micro-tag {
-            background: rgba(255, 255, 255, 0.02);
+        .micro-badge {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-subtle);
-            color: #e5e7eb;
-            font-size: 0.7rem;
+            color: var(--text-heading);
+            font-size: 0.75rem;
             padding: 3px 8px;
             border-radius: 4px;
         }
 
-        /* RESPONSIVE DESIGN WINDOW HEIGHT SAFEGUARDS */
-        @media (max-width: 850px) {
-            body { overflow: auto; height: auto; }
-            .dashboard-container { flex-direction: column; height: auto; }
-            .left-panel { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-subtle); }
-            .right-panel { width: 100%; height: auto; }
-            .console-grid { grid-template-columns: 1fr; height: auto; }
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-size: 0.8rem;
+            color: var(--text-body);
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="dashboard-container">
+    <div class="profile-header">
+        <h1 class="profile-title">Niharika Mruthyunjaya E</h1>
+        <p class="profile-subtitle">Electronics & Communication Engineering • PES University (6th Sem)</p>
+        <div class="header-links">
+            <a href="mailto:niharika.mj47@gmail.com">💌 Contact Email</a>
+            <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">🔗 LinkedIn Link</a>
+            <a href="Resume.pdf" target="_blank">📄 Access Resume</a>
+        </div>
+    </div>
+
+    <div class="main-layout">
         
-        <div class="left-panel">
-            <div class="profile-info">
-                <h1>Niharika M.</h1>
-                <p>Electronics & Communication Engineering undergraduate specializing in core integrated frameworks and peripheral automation mapping.</p>
-                
-                <div class="action-links">
-                    <a href="mailto:niharika.mj47@gmail.com">💌 Contact Email</a>
-                    <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">🔗 LinkedIn Link</a>
-                    <a href="Resume.pdf" target="_blank">📄 Access Resume</a>
+        <div class="grid-section-title">Overview & Academics</div>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="card-top">
+                    <div class="card-meta">Distinction Awards</div>
+                    <h3 class="card-name">DAC Scholarship Profile</h3>
+                    <p class="card-desc">Double consecutive recipient of the institutional merit award across the 3rd and 5th semesters.</p>
+                </div>
+                <div class="card-bottom-tags">
+                    <span class="micro-badge">PES University</span>
+                    <span class="micro-badge">Merit Rank</span>
                 </div>
             </div>
-            
-            <p class="footer-stamp">© 2026 • Console v1.0</p>
         </div>
 
-        <div class="right-panel">
-            <div class="console-grid">
-                
-                <div class="tile-card">
-                    <div>
-                        <div class="tile-meta">Overview</div>
-                        <h3 class="tile-title">Education & Ranks</h3>
-                        <p class="tile-desc">B.Tech candidate at PES University (6th Sem). Awarded the institutional DAC Scholarship twice for maintaining prominent academic merit standing.</p>
-                    </div>
-                    <div class="tile-tags">
-                        <span class="micro-tag">PES University</span>
-                        <span class="micro-tag">Merit Scholarship</span>
-                    </div>
+        <div class="grid-section-title">Professional Training Engagements</div>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="card-top">
+                    <div class="card-meta">Tessolve Semiconductor</div>
+                    <h3 class="card-name">Core Technical Internship</h3>
+                    <p class="card-desc">Deployed system nodes using Raspberry Pi frameworks alongside socket telemetry routines, terminal controls, and embedded logic architectures.</p>
                 </div>
-
-                <div class="tile-card">
-                    <div>
-                        <div class="tile-meta">Competency 01</div>
-                        <h3 class="tile-title">Simulation & Layouts</h3>
-                        <p class="tile-desc">Proficient in orchestrating micro-circuit configurations, verification sandboxes, and structural evaluations via professional tool frameworks.</p>
-                    </div>
-                    <div class="tile-tags">
-                        <span class="micro-tag">Cadence Virtuoso</span>
-                        <span class="micro-tag">Xilinx Vivado</span>
-                        <span class="micro-tag">Verilog HDL</span>
-                    </div>
+                <div class="card-bottom-tags">
+                    <span class="micro-badge">Linux Terminal</span>
+                    <span class="micro-badge">Socket Prog</span>
+                    <span class="micro-badge">Flask Dev</span>
                 </div>
+            </div>
 
-                <div class="tile-card">
-                    <div>
-                        <div class="tile-meta">Experience 01</div>
-                        <h3 class="tile-title">Tessolve Semiconductor</h3>
-                        <p class="tile-desc">Engineered functional system nodes utilizing single-board computing units alongside socket routine tracking and remote line configuration maps.</p>
-                    </div>
-                    <div class="tile-tags">
-                        <span class="micro-tag">Raspberry Pi</span>
-                        <span class="micro-tag">Socket Prog</span>
-                        <span class="micro-tag">Linux Console</span>
-                    </div>
+            <div class="resource-card">
+                <div class="card-top">
+                    <div class="card-meta">Coincent</div>
+                    <h3 class="card-name">Internet of Things Internship</h3>
+                    <p class="card-desc">Constructed automated firmware code maps interacting with cloud sensor engines inside dedicated hardware compilation sandboxes.</p>
                 </div>
-
-                <div class="tile-card">
-                    <div>
-                        <div class="tile-meta">Experience 02</div>
-                        <h3 class="tile-title">Coincent IoT</h3>
-                        <p class="tile-desc">Developed localized firmware setups sending diagnostic data pipelines safely across internet visualization ecosystems.</p>
-                    </div>
-                    <div class="tile-tags">
-                        <span class="micro-tag">Internet of Things</span>
-                        <span class="micro-tag">Telemetry</span>
-                        <span class="micro-tag">ESP32</span>
-                    </div>
+                <div class="card-bottom-tags">
+                    <span class="micro-badge">IoT Core</span>
+                    <span class="micro-badge">Telemetry</span>
+                    <span class="micro-badge">Sandboxing</span>
                 </div>
+            </div>
+        </div>
 
+        <div class="grid-section-title">Engineering Competencies</div>
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="card-top">
+                    <div class="card-meta">EDA Tools</div>
+                    <h3 class="card-name">Simulation & Hardware Layouts</h3>
+                    <p class="card-desc">Proficient in executing structural tests and layout configurations through industrial design channels.</p>
+                </div>
+                <div class="card-bottom-tags">
+                    <span class="micro-badge">Cadence Virtuoso</span>
+                    <span class="micro-badge">Xilinx Vivado</span>
+                    <span class="micro-badge">Verilog HDL</span>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="card-top">
+                    <div class="card-meta">Hardware Frameworks</div>
+                    <h3 class="card-name">Embedded System Protocols</h3>
+                    <p class="card-desc">Familiar with hardware pipeline communications and network mapping across processing units.</p>
+                </div>
+                <div class="card-bottom-tags">
+                    <span class="micro-badge">UART / SPI / I2C</span>
+                    <span class="micro-badge">Intel NUC</span>
+                    <span class="micro-badge">TCP/IP</span>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <footer>
+        <p>© 2026 ❤️ Niharika Mruthyunjaya E. Built inspired by classic repository grids.</p>
+    </footer>
 
 </body>
 </html>
