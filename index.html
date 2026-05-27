@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niharika Mruthyunjaya E | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #060913;
             --card-bg: rgba(19, 26, 44, 0.4);
+            --card-profile-bg: rgba(15, 22, 42, 0.65);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent-glow: #38bdf8;
             --accent-purple: #818cf8;
+            --accent-pink: #ec4899;
             --accent-green: #2dd4bf; 
             --border-color: rgba(30, 41, 59, 0.5);
+            --border-gradient: linear-gradient(to right, #38bdf8, #818cf8, #ec4899);
         }
 
         body {
@@ -22,24 +26,160 @@
             color: var(--text-primary);
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
-        /* VAATHSALYA MAX-WIDTH CONTAINER FORMAT */
         .container {
-            max-width: 800px;
+            max-width: 1050px; /* Expanded slightly to account for the elegant two-column layout grid */
             margin: 0 auto;
-            padding: 90px 24px;
+            padding: 80px 24px;
         }
 
-        /* VAATHSALYA SIGNATURE HEADER FORMAT */
-        header {
-            text-align: left;
+        /* TWO-COLUMN HERO GRID STRUCTURE MATCHING THE SECTIONS PROPORTIONALLY */
+        .hero-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
             margin-bottom: 70px;
         }
 
-        /* Gradient Text Pattern Effect on Name */
+        .hero-left {
+            flex: 1;
+            max-width: 620px;
+        }
+
+        /* HERO CARD BLOCK COMPONENT - EXACT MATCH RIGHT SIDE DESIGN */
+        .hero-right-card {
+            width: 320px;
+            background: var(--card-profile-bg);
+            border-radius: 16px;
+            padding: 30px 24px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* The signature top multi-color border trimming seen on the reference design */
+        .hero-right-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--border-gradient);
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        /* Floating Avatar Element with continuous pulse gradient backlights */
+        .avatar-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-pink));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+            position: relative;
+        }
+
+        /* Pulse Badge Element for 'Open to Work' */
+        .status-badge {
+            background: rgba(45, 212, 191, 0.1);
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse-glow 1.8s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 8px var(--accent-green); }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        .card-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: var(--text-primary);
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-info-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        /* Minimal Quick-Action Profile Icons Grid Footer Row */
+        .card-socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .card-socials a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .card-socials a:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-purple);
+            background: rgba(129, 140, 248, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* LEFT SIDE CONTENT STYLINGS FOR COMPLEMENTARY ALIGNMENT */
         h1 {
-            font-size: 3.4rem;
+            font-size: 3.2rem;
             font-weight: 800;
             margin: 0 0 16px 0;
             letter-spacing: -1.5px;
@@ -50,13 +190,11 @@
             line-height: 1.1;
         }
 
-        /* Continuous Inline Sub-Description Text */
         .profile-description {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             color: var(--text-secondary);
-            margin: 0 0 24px 0;
-            max-width: 720px;
+            margin: 0 0 30px 0;
         }
 
         .institution-tag {
@@ -64,7 +202,6 @@
             font-weight: 600;
         }
 
-        /* Inline Animated Typing Loop */
         .typed-text {
             color: var(--accent-green);
             font-weight: 600;
@@ -83,39 +220,83 @@
             50% { opacity: 1; }
         }
 
-        /* NAVIGATION LINKS HOVER TRIMS */
-        .links {
-            margin-top: 35px;
+        /* METRICS BLOCK ROW STYLES FOUND AT LEFT BOTTOM AT VATHSALYA HERO */
+        .metrics-container {
             display: flex;
-            justify-content: flex-start;
-            gap: 16px;
+            gap: 14px;
+            margin-bottom: 30px;
         }
 
-        .links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 8px 22px;
-            border-radius: 24px;
+        .metric-mini-card {
             background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px 20px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .metric-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-bottom: 2px;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .hero-actions-row {
+            display: flex;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-glow), var(--accent-purple));
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
             transition: all 0.25s ease;
         }
 
-        .links a:hover {
-            border-color: var(--accent-glow);
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
-            transform: translateY(-1px);
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--text-secondary);
+            transform: translateY(-2px);
         }
 
-        /* VAATHSALYA STRUCTURAL SECTION FORMAT WITH HOVER EFFECTS */
+        /* VAATHSALYA MAIN SECTIONS ACCORDION HOVER EFFECT */
         section {
             margin-bottom: 55px;
         }
 
         h2 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -136,7 +317,6 @@
             transform-origin: left center;
         }
 
-        /* Section line expands and glows on mouse hover */
         section:hover h2 {
             color: var(--text-primary);
         }
@@ -146,7 +326,6 @@
             transform: scaleX(1.02);
         }
 
-        /* ROW BLOCKS DESIGN WITH LIFT & SHADOW ELEVATION EFFECTS */
         .item-block {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -160,7 +339,6 @@
                         box-shadow 0.3s ease;
         }
 
-        /* Clean card rise and deep outer drop-shadow on hover */
         .item-block:hover {
             border-color: rgba(56, 189, 248, 0.35);
             transform: translateY(-4px);
@@ -184,7 +362,6 @@
             transition: color 0.2s ease;
         }
 
-        /* Brightens the title text gently when card container is hovered */
         .item-block:hover .item-title {
             color: #ffffff;
         }
@@ -215,7 +392,6 @@
             margin-bottom: 8px;
         }
 
-        /* TECH STACK ENTRIES STYLE */
         .skills-list {
             color: var(--text-secondary);
             font-size: 0.95rem;
@@ -233,10 +409,9 @@
         .skills-list strong {
             color: var(--text-primary);
             display: inline-block;
-            width: 180px; /* Aligns categories neatly */
+            width: 180px; 
         }
 
-        /* MINIMAL FOOTER SIGN-OFF */
         footer {
             text-align: left;
             margin-top: 90px;
@@ -245,25 +420,82 @@
             border-top: 1px solid var(--border-color);
             padding-top: 24px;
         }
+
+        /* RESPONSIVE CONTROL FOR TABLETS AND MOBILE DEVICES */
+        @media (max-width: 868px) {
+            .hero-grid {
+                flex-direction: column-reverse;
+                align-items: center;
+                gap: 35px;
+            }
+            .hero-left {
+                width: 100%;
+                text-align: left;
+            }
+            .hero-actions-row {
+                justify-content: flex-start;
+            }
+            .metrics-container {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <h1>Niharika Mruthyunjaya E</h1>
+        <div class="hero-grid">
             
-            <p class="profile-description">
-                An engineer centered at <span class="institution-tag">PES University</span> focusing on building core frameworks. 
-                Currently exploring roles as an <span class="typed-text"></span><span class="cursor">&nbsp;</span>
-            </p>
-            
-            <div class="links">
-                <a href="mailto:niharika.mj47@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">LinkedIn</a>
-                <a href="Resume.pdf" target="_blank">Resume</a>
+            <div class="hero-left">
+                <h1>Niharika Mruthyunjaya E</h1>
+                
+                <p class="profile-description">
+                    An engineer centered at <span class="institution-tag">PES University</span> focusing on building core frameworks. 
+                    Currently exploring roles as an <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                </p>
+
+                <div class="metrics-container">
+                    <div class="metric-mini-card">
+                        <div class="metric-num">ECE</div>
+                        <div class="metric-label">Core Domain</div>
+                    </div>
+                    <div class="metric-mini-card">
+                        <div class="metric-num">2x</div>
+                        <div class="metric-label">DAC Scholar</div>
+                    </div>
+                </div>
+
+                <div class="hero-actions-row">
+                    <a href="mailto:niharika.mj47@gmail.com" class="btn-primary"><i class="fa-regular fa-paper-plane" style="margin-right: 8px;"></i>Contact Me</a>
+                    <a href="Resume.pdf" target="_blank" class="btn-secondary"><i class="fa-solid fa-arrow-down-heading" style="margin-right: 8px;"></i>Download Resume</a>
+                </div>
             </div>
-        </header>
+
+            <div class="hero-right-card">
+                <div class="avatar-circle">N</div>
+                
+                <div class="status-badge">
+                    <span class="status-dot"></span>Open to work
+                </div>
+                
+                <div class="card-name">Niharika M E</div>
+                <div class="card-info-text">
+                    <i class="fa-solid fa-graduation-cap" style="color: var(--accent-glow);"></i> Undergraduate Engineer
+                </div>
+                <div class="card-info-text" style="margin-top: -14px;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--accent-pink);"></i> Bengaluru, India
+                </div>
+                
+                <div class="card-divider"></div>
+                
+                <div class="card-socials">
+                    <a href="mailto:niharika.mj47@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Niharika-47" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+        </div>
 
         <section>
             <h2>Education</h2>
@@ -272,7 +504,7 @@
                     <p class="item-title">PES University, Bengaluru</p>
                     <span class="item-date">2023 – 2027</span>
                 </div>
-                <p class="item-subtitle">B.Tech in Electronics and Communication Engineering (6th Semester)</p>
+                <p class="item-subtitle">B.Tech in Electronics and Communication Engineering</p>
                 <ul>
                     <li>Double recipient of the prestigious <strong>DAC Scholarship</strong> for outstanding academic merit ranks across the 3rd and 5th semesters.</li>
                 </ul>
