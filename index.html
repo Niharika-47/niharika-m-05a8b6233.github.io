@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Niharika Mruthyunjaya E | Dashboard</title>
+    <title>Niharika Mruthyunjaya E | Portfolio</title>
     <style>
         :root {
-            --bg-main: #0b0f17;
-            --bg-card: #111827;
-            --text-heading: #ffffff;
-            --text-body: #9ca3af;
-            --border-subtle: #1f2937;
+            --bg-color: #060913;
+            --card-bg: rgba(19, 26, 44, 0.4);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
             --accent-glow: #38bdf8;
             --accent-purple: #818cf8;
-            --tag-bg: rgba(56, 189, 248, 0.1);
+            --border-color: rgba(30, 41, 59, 0.5);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-heading);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             margin: 0;
             padding: 0;
         }
 
-        /* HEADER AREA */
-        .profile-header {
-            max-width: 1100px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px 20px 20px;
-            border-bottom: 1px solid var(--border-subtle);
+            padding: 80px 20px;
         }
 
-        .profile-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 0 0 8px 0;
-            letter-spacing: -0.5px;
+        /* HEADER AREA */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
             background: linear-gradient(to right, var(--accent-glow), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
-        /* DYNAMIC ANIMATION STYLING */
+        /* LIVE TYPING EFFECTS */
         .typing-container {
-            font-size: 1.05rem;
-            color: var(--text-body);
-            margin: 0 0 24px 0;
-            min-height: 24px;
-            font-weight: 400;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+            min-height: 28px;
         }
 
         .typed-text {
@@ -60,8 +62,8 @@
             display: inline-block;
             width: 2px;
             background-color: var(--accent-glow);
-            margin-left: 3px;
-            animation: blink 0.8s infinite;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
         }
 
         @keyframes blink {
@@ -69,225 +71,186 @@
             50% { opacity: 1; }
         }
 
-        /* LINKS */
-        .header-links {
+        .links {
+            margin-top: 25px;
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .header-links a {
-            color: var(--text-heading);
+        .links a {
+            color: var(--text-primary);
             text-decoration: none;
-            font-size: 0.85rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            padding: 8px 16px;
-            border-radius: 6px;
+            font-size: 0.9rem;
             font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             transition: all 0.2s ease;
         }
 
-        .header-links a:hover {
+        .links a:hover {
             border-color: var(--accent-glow);
-            background: rgba(56, 189, 248, 0.05);
-            transform: translateY(-1px);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
         }
 
-        /* GRID CONFIGURATIONS */
-        .main-layout {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .grid-section-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-body);
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 16px;
+        /* SECTIONS WITH BULLET ENTRIES */
+        section {
             margin-bottom: 50px;
         }
 
-        /* CARDS */
-        .resource-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            padding: 24px;
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: border-color 0.2s, transform 0.2s;
+            align-items: center;
+            gap: 15px;
         }
 
-        .resource-card:hover {
-            border-color: var(--accent-glow);
-            transform: translateY(-2px);
+        h2::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
         }
 
-        .card-top {
+        .item-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
             margin-bottom: 20px;
         }
 
-        .card-meta {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent-glow);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
             margin-bottom: 6px;
         }
 
-        .card-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0 0 10px 0;
-            line-height: 1.4;
-        }
-
-        .card-desc {
-            color: var(--text-body);
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .item-title {
+            font-weight: 700;
+            font-size: 1.15rem;
             margin: 0;
         }
 
-        .card-bottom-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            border-top: 1px solid rgba(31, 41, 55, 0.5);
-            padding-top: 14px;
+        .item-date {
+            color: var(--accent-glow);
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
-        .micro-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-heading);
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 4px;
+        .item-subtitle {
+            color: var(--accent-purple);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin: 0 0 14px 0;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* TECH STACK LISTING */
+        .skills-list {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .skills-list strong {
+            color: var(--text-primary);
         }
 
         footer {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            font-size: 0.8rem;
-            color: var(--text-body);
-            border-top: 1px solid var(--border-subtle);
             text-align: center;
+            margin-top: 80px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-header">
-        <h1 class="profile-title">Niharika Mruthyunjaya E</h1>
-        
-        <div class="typing-container">
-            <span>PES University • </span><span class="typed-text"></span><span class="cursor">&nbsp;</span>
-        </div>
+    <div class="container">
+        <header>
+            <h1>Niharika Mruthyunjaya E</h1>
+            <div class="typing-container">
+                <span>PES University • </span><span class="typed-text"></span><span class="cursor">&nbsp;</span>
+            </div>
+            <div class="links">
+                <a href="mailto:niharika.mj47@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">LinkedIn</a>
+                <a href="Resume.pdf" target="_blank">Resume</a>
+            </div>
+        </header>
 
-        <div class="header-links">
-            <a href="mailto:niharika.mj47@gmail.com">💌 Contact Email</a>
-            <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">🔗 LinkedIn Link</a>
-            <a href="Resume.pdf" target="_blank">📄 Access Resume</a>
-        </div>
+        <section>
+            <h2>Education</h2>
+            <div class="item-block">
+                <div class="item-header">
+                    <p class="item-title">PES University, Bengaluru</p>
+                    <span class="item-date">2023 – 2027</span>
+                </div>
+                <p class="item-subtitle">B.Tech in Electronics and Communication Engineering (6th Semester)</p>
+                <ul>
+                    <li>Double recipient of the prestigious <strong>DAC Scholarship</strong> for outstanding academic merit ranks across the 3rd and 5th semesters.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="item-block">
+                <div class="item-header">
+                    <p class="item-title">Tessolve Semiconductor Pvt. Ltd.</p>
+                    <span class="item-date">June 2025 – Aug 2025</span>
+                </div>
+                <p class="item-subtitle">Summer Intern</p>
+                <ul>
+                    <li>Handled hardware nodes using single-board configurations running across secure execution channels.</li>
+                    <li>Designed hardware-software integration channels utilizing Python scripting engines.</li>
+                    <li>Developed backend interfaces using Flask to monitor system registries remotely.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tech Stack & Skills</h2>
+            <div class="item-block">
+                <div class="skills-list">
+                    <p><strong>Tools & Simulations:</strong> Cadence Virtuoso, Xilinx Vivado, Verilog HDL</p>
+                    <p><strong>Systems & Hardware:</strong> Embedded Systems, Raspberry Pi, Intel NUC, Hardware-Software Integration</p>
+                    <p><strong>Protocols & Networking:</strong> UART, SPI, I2C, TCP/IP Networking, Socket Programming, Remote System Access</p>
+                    <p><strong>Software & Environments:</strong> Linux Terminal Usage (Basic), Python-based Monitoring, Web Interface Development (Flask)</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Niharika Mruthyunjaya E.</p>
+        </footer>
     </div>
-
-    <div class="main-layout">
-        
-        <div class="grid-section-title">Overview & Academics</div>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div class="card-top">
-                    <div class="card-meta">Distinction Awards</div>
-                    <h3 class="card-name">DAC Scholarship Profile</h3>
-                    <p class="card-desc">Double consecutive recipient of the institutional merit award across the 3rd and 5th semesters.</p>
-                </div>
-                <div class="card-bottom-tags">
-                    <span class="micro-badge">PES University</span>
-                    <span class="micro-badge">Merit Rank</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid-section-title">Professional Training Engagements</div>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div class="card-top">
-                    <div class="card-meta">Tessolve Semiconductor</div>
-                    <h3 class="card-name">Core Technical Internship</h3>
-                    <p class="card-desc">Deployed system nodes using Raspberry Pi frameworks alongside socket telemetry routines, terminal controls, and embedded logic architectures.</p>
-                </div>
-                <div class="card-bottom-tags">
-                    <span class="micro-badge">Linux Terminal</span>
-                    <span class="micro-badge">Socket Prog</span>
-                    <span class="micro-badge">Flask Dev</span>
-                </div>
-            </div>
-
-            <div class="resource-card">
-                <div class="card-top">
-                    <div class="card-meta">Coincent</div>
-                    <h3 class="card-name">Internet of Things Internship</h3>
-                    <p class="card-desc">Constructed automated firmware code maps interacting with cloud sensor engines inside dedicated hardware compilation sandboxes.</p>
-                </div>
-                <div class="card-bottom-tags">
-                    <span class="micro-badge">IoT Core</span>
-                    <span class="micro-badge">Telemetry</span>
-                    <span class="micro-badge">Sandboxing</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid-section-title">Engineering Competencies</div>
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div class="card-top">
-                    <div class="card-meta">EDA Tools</div>
-                    <h3 class="card-name">Simulation & Hardware Layouts</h3>
-                    <p class="card-desc">Proficient in executing structural tests and layout configurations through industrial design channels.</p>
-                </div>
-                <div class="card-bottom-tags">
-                    <span class="micro-badge">Cadence Virtuoso</span>
-                    <span class="micro-badge">Xilinx Vivado</span>
-                    <span class="micro-badge">Verilog HDL</span>
-                </div>
-            </div>
-
-            <div class="resource-card">
-                <div class="card-top">
-                    <div class="card-meta">Hardware Frameworks</div>
-                    <h3 class="card-name">Embedded System Protocols</h3>
-                    <p class="card-desc">Familiar with hardware pipeline communications and network mapping across processing units.</p>
-                </div>
-                <div class="card-bottom-tags">
-                    <span class="micro-badge">UART / SPI / I2C</span>
-                    <span class="micro-badge">Intel NUC</span>
-                    <span class="micro-badge">TCP/IP</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>© 2026 ❤️ Niharika Mruthyunjaya E. Built inspired by classic repository grids.</p>
-    </footer>
 
     <script>
-        const words = ["Electronics & Communication Engineering", "IoT & Robotics", "Embedded Systems Development"];
+        const words = ["Electronics & Communication Engineering", "IoT Enthusiast", "Embedded Systems Developer"];
         let i = 0, timer;
 
         function typingEffect() {
