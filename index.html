@@ -6,39 +6,49 @@
     <title>Niharika Mruthyunjaya E | Portfolio</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #131a2c;
+            --bg-color: #060913;
+            --card-bg: rgba(19, 26, 44, 0.65);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent-glow: #38bdf8;
             --accent-purple: #818cf8;
-            --border-color: #1e293b;
+            --border-color: rgba(30, 41, 59, 0.8);
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.7;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* LIVE BACKGROUND PARTICLES */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
-        /* PREMIUM HERO HEADER */
+        /* HERO HEADER WITH EFFECTS */
         header {
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
+            margin-bottom: 70px;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
             margin: 0;
             background: linear-gradient(to right, var(--accent-glow), var(--accent-purple));
@@ -47,51 +57,74 @@
             letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
+        /* TYPING EFFECT WRAPPER */
+        .typing-container {
+            font-size: 1.15rem;
             color: var(--text-secondary);
-            margin-top: 10px;
+            margin-top: 12px;
+            min-height: 30px;
             font-weight: 400;
         }
 
+        .typed-text {
+            color: var(--accent-glow);
+            font-weight: 500;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: var(--accent-glow);
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
         .links {
-            margin-top: 25px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .links a {
             color: var(--text-primary);
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 30px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .links a:hover {
             border-color: var(--accent-glow);
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+            transform: translateY(-3px);
         }
 
         /* SECTIONS */
         section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--text-primary);
-            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
         h2::after {
@@ -101,20 +134,21 @@
             background: linear-gradient(to right, var(--border-color), transparent);
         }
 
-        /* PREMIUM CARDS */
+        /* MINIMAL GLASS CARDS */
         .card {
-            background-color: var(--card-bg);
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 24px;
-            margin-bottom: 20px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 25px;
+            backdrop-filter: blur(12px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px) scale(1.01);
+            border-color: rgba(56, 189, 248, 0.35);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         .card-header {
@@ -122,110 +156,92 @@
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
         .card-title {
             font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--text-primary);
+            font-size: 1.2rem;
             margin: 0;
         }
 
         .card-date {
             color: var(--accent-glow);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            background: rgba(56, 189, 248, 0.1);
-            padding: 2px 10px;
-            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.15);
         }
 
         .card-subtitle {
             color: var(--accent-purple);
             font-weight: 500;
-            font-size: 0.95rem;
-            margin: 6px 0 15px 0;
+            font-size: 0.9rem;
+            margin: 6px 0 16px 0;
         }
 
         ul {
-            padding-left: 20px;
+            padding-left: 18px;
             margin: 0;
             color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        /* GLOWING TECH BADGES */
-        .badge-container {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .badge {
-            background-color: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover .badge {
-            border-color: rgba(129, 140, 248, 0.3);
-            background-color: rgba(129, 140, 248, 0.05);
-        }
-
-        /* SPECIAL SKILLS GRID */
+        /* SKILLS MATRIX */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
             gap: 12px;
         }
 
         .skill-box {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 12px;
-            border-radius: 8px;
+            padding: 14px;
+            border-radius: 12px;
             text-align: center;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            backdrop-filter: blur(8px);
             transition: all 0.3s ease;
         }
 
         .skill-box:hover {
             border-color: var(--accent-purple);
             background: rgba(129, 140, 248, 0.1);
-            transform: scale(1.03);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(129, 140, 248, 0.15);
         }
 
         footer {
             text-align: center;
-            margin-top: 80px;
-            font-size: 0.85rem;
+            margin-top: 100px;
+            font-size: 0.8rem;
             color: var(--text-secondary);
             border-top: 1px solid var(--border-color);
-            padding-top: 20px;
+            padding-top: 30px;
         }
     </style>
 </head>
 <body>
 
+    <canvas id="canvas-bg"></canvas>
+
     <div class="container">
         <header>
             <h1>Niharika Mruthyunjaya E</h1>
-            <p class="subtitle">Electronics & Communication Engineering | PES University</p>
+            <div class="typing-container">
+                <span>PES University • </span><span class="typed-text"></span><span class="cursor">&nbsp;</span>
+            </div>
             <div class="links">
                 <a href="mailto:niharika.mj47@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">LinkedIn</a>
-                <a href="Resume.pdf" target="_blank">Download Resume</a>
+                <a href="Resume.pdf" target="_blank">Resume</a>
             </div>
         </header>
 
@@ -233,12 +249,12 @@
             <h2>Education</h2>
             <div class="card">
                 <div class="card-header">
-                    <p class="card-title">PES University, Bengaluru</p>
+                    <p class="card-title">PES University</p>
                     <span class="card-date">2023 – 2027</span>
                 </div>
-                <p class="card-subtitle">B.Tech in Electronics and Communication Engineering (6th Semester)</p>
+                <p class="card-subtitle">B.Tech • Electronics & Communication Engineering</p>
                 <ul>
-                    <li>Double recipient of the prestigious <strong>DAC Scholarship</strong> for outstanding academic merit ranks across the 3rd and 5th semesters.</li>
+                    <li>Double recipient of the <strong>DAC Scholarship</strong> for top academic merit ranks.</li>
                 </ul>
             </div>
         </section>
@@ -247,74 +263,135 @@
             <h2>Experience</h2>
             <div class="card">
                 <div class="card-header">
-                    <p class="card-title">Tessolve Semiconductor Pvt. Ltd.</p>
-                    <span class="card-date">June 2025 – Aug 2025</span>
+                    <p class="card-title">Tessolve Semiconductor</p>
+                    <span class="card-date">Jun 2025 – Aug 2025</span>
                 </div>
                 <p class="card-subtitle">Summer Intern</p>
                 <ul>
-                    <li>Engineered embedded system configurations using Raspberry Pi nodes for responsive remote server interaction.</li>
-                    <li>Integrated hardware layout channels communicating across serial frameworks (**UART, SPI, I2C**).</li>
-                    <li>Analyzed secure micro-routing over encrypted network infrastructures via **Tailscale** networks.</li>
+                    <li>Integrated hardware nodes over secure lines using Raspberry Pi and Intel NUC.</li>
+                    <li>Designed hardware-software integration channels with Python monitoring scripts.</li>
+                    <li>Configured remote network access environments via custom web interface layouts.</li>
                 </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <p class="card-title">Coincent</p>
-                    <span class="card-date">2023 – Sept 2025</span>
-                </div>
-                <p class="card-subtitle">Internet of Things (IoT) Intern</p>
-                <ul>
-                    <li>Architected dynamic sensor telemetry systems channeling hardware points to remote IoT visual clouds.</li>
-                    <li>Developed and verified hardware-ready automation firmwares inside virtual compiler test sandboxes.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            <div class="card">
-                <p class="card-title">IoT-Based Smart Factory System</p>
-                <p style="margin: 10px 0; color: var(--text-secondary);">Designed responsive safety firmware loops syncing multi-node arrays (Ultrasonic mapping, Smoke detection, Temp thresholds) to automatically spark active relays, exhaust fans, and structural alarms.</p>
-                <div class="badge-container">
-                    <span class="badge">Microcontrollers</span>
-                    <span class="badge">Relay Actuators</span>
-                    <span class="badge">Tinkercad</span>
-                    <span class="badge">Firmware Logic</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <p class="card-title">Cloud-Connected Health & Weather Architectures</p>
-                <p style="margin: 10px 0; color: var(--text-secondary);">Deployed cloud-linked systems reading vital biometric metrics and environmental shifts, transmitting live Wi-Fi telemetry pipelines into interactive **ThingSpeak** and **Blynk Cloud** diagnostic dashboards.</p>
-                <div class="badge-container">
-                    <span class="badge">ESP32 Architecture</span>
-                    <span class="badge">ThingSpeak API</span>
-                    <span class="badge">Blynk Cloud</span>
-                    <span class="badge">Wokwi Sandbox</span>
-                </div>
             </div>
         </section>
 
         <section>
             <h2>Tech Stack</h2>
             <div class="skills-grid">
-                <div class="skill-box">Embedded Systems</div>
-                <div class="skill-box">IoT Systems</div>
-                <div class="skill-box">UART / SPI / I2C</div>
                 <div class="skill-box">Cadence Virtuoso</div>
                 <div class="skill-box">Xilinx Vivado</div>
-                <div class="skill-box">C Programming</div>
+                <div class="skill-box">Embedded Systems</div>
+                <div class="skill-box">Raspberry Pi</div>
+                <div class="skill-box">Intel NUC</div>
+                <div class="skill-box">Socket Programming</div>
+                <div class="skill-box">Flask Web Dev</div>
                 <div class="skill-box">Linux Terminal</div>
-                <span class="skill-box">Flask Web Dev</span>
-                <div class="skill-box">Circuit Simulation</div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 Niharika Mruthyunjaya E. Designed with a custom tech aesthetic.</p>
+            <p>&copy; 2026 Niharika Mruthyunjaya E.</p>
         </footer>
     </div>
 
+    <script>
+        // --- TYPING ANIMATION ENGINE ---
+        const words = ["Electronics & Communication Engineer", "IoT Enthusiast", "Embedded Systems Developer"];
+        let i = 0, timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.querySelector('.typed-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 70);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.querySelector('.typed-text').innerHTML = word.join("");
+                } else {
+                    i = (words.length > i + 1) ? i + 1 : 0;
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 40);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // --- INTERACTIVE MATRIX NETWORK BACKGROUND ---
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 1.5 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            // Draw connecting web lines
+            ctx.strokeStyle = 'rgba(129, 140, 248, 0.05)';
+            ctx.lineWidth = 0.8;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
 </body>
 </html>
