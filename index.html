@@ -6,105 +6,115 @@
     <title>Niharika Mruthyunjaya E | Portfolio</title>
     <style>
         :root {
-            --bg-color: #f7fafc;
-            --text-color: #2d3748;
-            --primary-color: #1a365d;
-            --accent-color: #2b6cb0;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
+            --bg-color: #0b0f19;
+            --card-bg: #131a2c;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-glow: #38bdf8;
+            --accent-purple: #818cf8;
+            --border-color: #1e293b;
         }
-
-        /* Feel free to uncomment this block if you want an automated Dark Mode theme instead!
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #0f172a;
-                --text-color: #cbd5e1;
-                --primary-color: #38bdf8;
-                --accent-color: #0ea5e9;
-                --card-bg: #1e293b;
-                --border-color: #334155;
-            }
-        }
-        */
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            color: var(--text-primary);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
+        /* PREMIUM HERO HEADER */
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            position: relative;
         }
 
         h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, var(--accent-glow), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-weight: 400;
         }
 
         .links {
-            margin-top: 15px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         .links a {
-            color: var(--text-color);
+            color: var(--text-primary);
             text-decoration: none;
-            margin: 0 10px;
-            font-weight: 600;
-            border-bottom: 2px solid transparent;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
         .links a:hover {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
+            border-color: var(--accent-glow);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+            transform: translateY(-2px);
         }
 
+        /* SECTIONS */
         section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         h2 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
+        h2::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-color), transparent);
+        }
+
+        /* PREMIUM CARDS */
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .card-header {
@@ -112,56 +122,97 @@
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .card-title {
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
             margin: 0;
         }
 
         .card-date {
-            color: var(--accent-color);
+            color: var(--accent-glow);
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 2px 10px;
+            border-radius: 12px;
         }
 
         .card-subtitle {
-            font-style: italic;
-            opacity: 0.8;
-            margin: 5px 0 10px 0;
+            color: var(--accent-purple);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin: 6px 0 15px 0;
         }
 
         ul {
             padding-left: 20px;
-            margin: 10px 0 0 0;
+            margin: 0;
+            color: var(--text-secondary);
         }
 
         li {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
+        /* GLOWING TECH BADGES */
         .badge-container {
-            margin-top: 15px;
+            margin-top: 18px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
 
         .badge {
-            background-color: var(--bg-color);
+            background-color: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--border-color);
-            padding: 4px 10px;
-            border-radius: 4px;
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .badge {
+            border-color: rgba(129, 140, 248, 0.3);
+            background-color: rgba(129, 140, 248, 0.05);
+        }
+
+        /* SPECIAL SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-box:hover {
+            border-color: var(--accent-purple);
+            background: rgba(129, 140, 248, 0.1);
+            transform: scale(1.03);
         }
 
         footer {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 80px;
             font-size: 0.85rem;
-            opacity: 0.7;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -170,11 +221,11 @@
     <div class="container">
         <header>
             <h1>Niharika Mruthyunjaya E</h1>
-            <p class="subtitle">Electronics & Communication Engineering Student | PES University</p>
+            <p class="subtitle">Electronics & Communication Engineering | PES University</p>
             <div class="links">
                 <a href="mailto:niharika.mj47@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">LinkedIn</a>
-                <a href="#">Resume PDF</a>
+                <a href="Resume.pdf" target="_blank">Download Resume</a>
             </div>
         </header>
 
@@ -185,15 +236,15 @@
                     <p class="card-title">PES University, Bengaluru</p>
                     <span class="card-date">2023 – 2027</span>
                 </div>
-                <p class="card-subtitle">B.Tech in Electronics and Communication Engineering (Ongoing / 6th Sem)</p>
+                <p class="card-subtitle">B.Tech in Electronics and Communication Engineering (6th Semester)</p>
                 <ul>
-                    <li>Double recipient of the prestigious <strong>DAC Scholarship</strong> for top-tier academic merit ranks in the 3rd and 5th semesters.</li>
+                    <li>Double recipient of the prestigious <strong>DAC Scholarship</strong> for outstanding academic merit ranks across the 3rd and 5th semesters.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>Technical Experience</h2>
+            <h2>Experience</h2>
             <div class="card">
                 <div class="card-header">
                     <p class="card-title">Tessolve Semiconductor Pvt. Ltd.</p>
@@ -201,9 +252,9 @@
                 </div>
                 <p class="card-subtitle">Summer Intern</p>
                 <ul>
-                    <li>Developed embedded toolsets for remote server hardware configurations utilizing Raspberry Pi interfaces.</li>
-                    <li>Designed serial transmission setups across UART, SPI, and I2C layer stacks.</li>
-                    <li>Evaluated system network metrics with secure mesh structures like Tailscale.</li>
+                    <li>Engineered embedded system configurations using Raspberry Pi nodes for responsive remote server interaction.</li>
+                    <li>Integrated hardware layout channels communicating across serial frameworks (**UART, SPI, I2C**).</li>
+                    <li>Analyzed secure micro-routing over encrypted network infrastructures via **Tailscale** networks.</li>
                 </ul>
             </div>
 
@@ -214,55 +265,54 @@
                 </div>
                 <p class="card-subtitle">Internet of Things (IoT) Intern</p>
                 <ul>
-                    <li>Designed architecture maps integrating hardware sensors with live cloud data metrics.</li>
-                    <li>Built completely hardware-ready automation firmwares inside virtual sandbox simulation environments.</li>
+                    <li>Architected dynamic sensor telemetry systems channeling hardware points to remote IoT visual clouds.</li>
+                    <li>Developed and verified hardware-ready automation firmwares inside virtual compiler test sandboxes.</li>
                 </ul>
             </div>
         </section>
 
         <section>
-            <h2>Highlighted Engineering Projects</h2>
+            <h2>Projects</h2>
             <div class="card">
                 <p class="card-title">IoT-Based Smart Factory System</p>
-                <p style="margin: 8px 0;">Developed automated sensor-trigger firmware capturing multi-point environmental anomalies (smoke, movement, temperature limits) to dynamically command structural relay actuators, fans, and alarms.</p>
+                <p style="margin: 10px 0; color: var(--text-secondary);">Designed responsive safety firmware loops syncing multi-node arrays (Ultrasonic mapping, Smoke detection, Temp thresholds) to automatically spark active relays, exhaust fans, and structural alarms.</p>
                 <div class="badge-container">
                     <span class="badge">Microcontrollers</span>
-                    <span class="badge">Sensor Interfacing</span>
+                    <span class="badge">Relay Actuators</span>
                     <span class="badge">Tinkercad</span>
+                    <span class="badge">Firmware Logic</span>
                 </div>
             </div>
 
             <div class="card">
-                <p class="card-title">IoT-Based Weather & Health Cloud Architectures</p>
-                <p style="margin: 8px 0;">Engineered real-time environmental logging pipelines and biometric telemetry tracking frameworks using ESP32 architectures connecting directly to live ThingSpeak and Blynk analytics servers over Wi-Fi.</p>
+                <p class="card-title">Cloud-Connected Health & Weather Architectures</p>
+                <p style="margin: 10px 0; color: var(--text-secondary);">Deployed cloud-linked systems reading vital biometric metrics and environmental shifts, transmitting live Wi-Fi telemetry pipelines into interactive **ThingSpeak** and **Blynk Cloud** diagnostic dashboards.</p>
                 <div class="badge-container">
-                    <span class="badge">ESP32</span>
+                    <span class="badge">ESP32 Architecture</span>
                     <span class="badge">ThingSpeak API</span>
                     <span class="badge">Blynk Cloud</span>
-                    <span class="badge">Wokwi</span>
+                    <span class="badge">Wokwi Sandbox</span>
                 </div>
             </div>
         </section>
 
         <section>
-            <h2>Technical Stack</h2>
-            <div class="card">
-                <div class="badge-container" style="margin-top: 0;">
-                    <span class="badge">Embedded Systems</span>
-                    <span class="badge">IoT Frameworks</span>
-                    <span class="badge">UART / SPI / I2C</span>
-                    <span class="badge">Cadence Virtuoso</span>
-                    <span class="badge">Xilinx Vivado</span>
-                    <span class="badge">C Programming</span>
-                    <span class="badge">Linux Terminal</span>
-                    <span class="badge">Flask Web Dev</span>
-                    <span class="badge">Circuit Simulation</span>
-                </div>
+            <h2>Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-box">Embedded Systems</div>
+                <div class="skill-box">IoT Systems</div>
+                <div class="skill-box">UART / SPI / I2C</div>
+                <div class="skill-box">Cadence Virtuoso</div>
+                <div class="skill-box">Xilinx Vivado</div>
+                <div class="skill-box">C Programming</div>
+                <div class="skill-box">Linux Terminal</div>
+                <span class="skill-box">Flask Web Dev</span>
+                <div class="skill-box">Circuit Simulation</div>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 Niharika Mruthyunjaya E. Built independently on GitHub Pages.</p>
+            <p>&copy; 2026 Niharika Mruthyunjaya E. Designed with a custom tech aesthetic.</p>
         </footer>
     </div>
 
