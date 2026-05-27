@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niharika Mruthyunjaya E | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f7fafc;
+            --text-color: #2d3748;
+            --primary-color: #1a365d;
+            --accent-color: #2b6cb0;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        /* Feel free to uncomment this block if you want an automated Dark Mode theme instead!
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0f172a;
+                --text-color: #cbd5e1;
+                --primary-color: #38bdf8;
+                --accent-color: #0ea5e9;
+                --card-bg: #1e293b;
+                --border-color: #334155;
+            }
+        }
+        */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-top: 0;
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        .card-date {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .card-subtitle {
+            font-style: italic;
+            opacity: 0.8;
+            margin: 5px 0 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 10px 0 0 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .badge-container {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Niharika Mruthyunjaya E</h1>
+            <p class="subtitle">Electronics & Communication Engineering Student | PES University</p>
+            <div class="links">
+                <a href="mailto:niharika.mj47@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">LinkedIn</a>
+                <a href="#">Resume PDF</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Education</h2>
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-title">PES University, Bengaluru</p>
+                    <span class="card-date">2023 – 2027</span>
+                </div>
+                <p class="card-subtitle">B.Tech in Electronics and Communication Engineering (Ongoing / 6th Sem)</p>
+                <ul>
+                    <li>Double recipient of the prestigious <strong>DAC Scholarship</strong> for top-tier academic merit ranks in the 3rd and 5th semesters.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Experience</h2>
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-title">Tessolve Semiconductor Pvt. Ltd.</p>
+                    <span class="card-date">June 2025 – Aug 2025</span>
+                </div>
+                <p class="card-subtitle">Summer Intern</p>
+                <ul>
+                    <li>Developed embedded toolsets for remote server hardware configurations utilizing Raspberry Pi interfaces.</li>
+                    <li>Designed serial transmission setups across UART, SPI, and I2C layer stacks.</li>
+                    <li>Evaluated system network metrics with secure mesh structures like Tailscale.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-title">Coincent</p>
+                    <span class="card-date">2023 – Sept 2025</span>
+                </div>
+                <p class="card-subtitle">Internet of Things (IoT) Intern</p>
+                <ul>
+                    <li>Designed architecture maps integrating hardware sensors with live cloud data metrics.</li>
+                    <li>Built completely hardware-ready automation firmwares inside virtual sandbox simulation environments.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Highlighted Engineering Projects</h2>
+            <div class="card">
+                <p class="card-title">IoT-Based Smart Factory System</p>
+                <p style="margin: 8px 0;">Developed automated sensor-trigger firmware capturing multi-point environmental anomalies (smoke, movement, temperature limits) to dynamically command structural relay actuators, fans, and alarms.</p>
+                <div class="badge-container">
+                    <span class="badge">Microcontrollers</span>
+                    <span class="badge">Sensor Interfacing</span>
+                    <span class="badge">Tinkercad</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="card-title">IoT-Based Weather & Health Cloud Architectures</p>
+                <p style="margin: 8px 0;">Engineered real-time environmental logging pipelines and biometric telemetry tracking frameworks using ESP32 architectures connecting directly to live ThingSpeak and Blynk analytics servers over Wi-Fi.</p>
+                <div class="badge-container">
+                    <span class="badge">ESP32</span>
+                    <span class="badge">ThingSpeak API</span>
+                    <span class="badge">Blynk Cloud</span>
+                    <span class="badge">Wokwi</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Stack</h2>
+            <div class="card">
+                <div class="badge-container" style="margin-top: 0;">
+                    <span class="badge">Embedded Systems</span>
+                    <span class="badge">IoT Frameworks</span>
+                    <span class="badge">UART / SPI / I2C</span>
+                    <span class="badge">Cadence Virtuoso</span>
+                    <span class="badge">Xilinx Vivado</span>
+                    <span class="badge">C Programming</span>
+                    <span class="badge">Linux Terminal</span>
+                    <span class="badge">Flask Web Dev</span>
+                    <span class="badge">Circuit Simulation</span>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Niharika Mruthyunjaya E. Built independently on GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
