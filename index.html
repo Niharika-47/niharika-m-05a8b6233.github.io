@@ -109,7 +109,7 @@
             transform: translateY(-1px);
         }
 
-        /* VAATHSALYA STRUCTURAL SECTION FORMAT */
+        /* VAATHSALYA STRUCTURAL SECTION FORMAT WITH HOVER EFFECTS */
         section {
             margin-bottom: 55px;
         }
@@ -124,6 +124,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            transition: color 0.3s ease;
         }
 
         h2::after {
@@ -131,20 +132,40 @@
             flex-grow: 1;
             height: 1px;
             background: linear-gradient(to right, var(--border-color), transparent);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+            transform-origin: left center;
         }
 
-        /* ROW BLOCKS DESIGN */
+        /* Section line expands and glows on mouse hover */
+        section:hover h2 {
+            color: var(--text-primary);
+        }
+
+        section:hover h2::after {
+            background: linear-gradient(to right, var(--accent-glow), transparent);
+            transform: scaleX(1.02);
+        }
+
+        /* ROW BLOCKS DESIGN WITH LIFT & SHADOW ELEVATION EFFECTS */
         .item-block {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 26px;
             margin-bottom: 22px;
-            transition: border-color 0.2s ease;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                        border-color 0.3s ease, 
+                        box-shadow 0.3s ease;
         }
 
+        /* Clean card rise and deep outer drop-shadow on hover */
         .item-block:hover {
-            border-color: rgba(56, 189, 248, 0.3);
+            border-color: rgba(56, 189, 248, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(6, 9, 19, 0.5), 
+                        0 0 15px rgba(56, 189, 248, 0.03);
         }
 
         .item-header {
@@ -160,6 +181,12 @@
             font-size: 1.2rem;
             margin: 0;
             color: var(--text-primary);
+            transition: color 0.2s ease;
+        }
+
+        /* Brightens the title text gently when card container is hovered */
+        .item-block:hover .item-title {
+            color: #ffffff;
         }
 
         .item-date {
