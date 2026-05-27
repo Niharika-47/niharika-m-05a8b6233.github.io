@@ -30,35 +30,40 @@
             padding: 80px 20px;
         }
 
-        /* UPGRADED HERO AREA (Vaathsalya Left-Aligned Layout) */
+        /* RESET & ALIGN HERO AREA */
         header {
-            text-align: left; /* Switched from center to match the text pattern design */
+            text-align: left;
             margin-bottom: 60px;
         }
 
+        /* Premium Text-Pattern Formatting for Name Only */
         h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            margin: 0 0 10px 0;
-            letter-spacing: -1px;
-            color: var(--text-primary);
-        }
-
-        /* Gradient Text Pattern Effect on your Name */
-        .gradient-name {
+            margin: 0 0 4px 0;
+            letter-spacing: -1.5px;
             background: linear-gradient(to right, var(--accent-glow), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
 
+        /* Institutional Context Styling */
+        .header-institution {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin: 4px 0 12px 0;
+            letter-spacing: 0.5px;
+        }
+
         /* LIVE TYPING EFFECTS */
         .typing-container {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--accent-green);
             font-weight: 600;
-            margin-top: 10px;
             min-height: 32px;
+            margin-top: 8px;
         }
 
         .cursor {
@@ -77,7 +82,7 @@
         .links {
             margin-top: 30px;
             display: flex;
-            justify-content: flex-start; /* Aligned with the left-justified text */
+            justify-content: flex-start;
             gap: 15px;
         }
 
@@ -195,10 +200,13 @@
 
     <div class="container">
         <header>
-            <h1>Hi, I'm <span class="gradient-name">Niharika Mruthyunjaya E</span></h1>
+            <h1>Niharika Mruthyunjaya E</h1>
+            <div class="header-institution">PES University</div>
+            
             <div class="typing-container">
                 <span class="typed-text"></span><span class="cursor">&nbsp;</span>
             </div>
+            
             <div class="links">
                 <a href="mailto:niharika.mj47@gmail.com">Email</a>
                 <a href="https://www.linkedin.com/in/niharika-m-05a8b6233" target="_blank">LinkedIn</a>
